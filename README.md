@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" alt="procman.nvim logo" width="120">
+</p>
+
 # procman.nvim
 
 Process/service manager for Neovim, written in Lua. Built for workspaces
