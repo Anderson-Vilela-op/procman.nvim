@@ -7,7 +7,10 @@
 Process/service manager for Neovim, written in Lua. Built for workspaces
 with multiple services (e.g. `backend` + `frontend` + `worker`).
 
-<video src="assets/screenrecording-2026-08-19_01-31-38.mp4" controls muted title="procman.nvim demo"></video>
+<p align="center">
+  <img src="assets/demo.gif" alt="procman.nvim demo" width="900">
+</p>
+<p align="center"><sub><a href="assets/screenrecording-2026-08-19_01-31-38.mp4">watch the full-quality video</a></sub></p>
 
 <table>
   <tr>
