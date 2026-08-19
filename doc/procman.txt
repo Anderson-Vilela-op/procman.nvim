@@ -1,0 +1,87 @@
+*procman.txt*   Process/service manager for Neovim
+
+==============================================================================
+CONTENTS                                                     *procman*
+
+    1. Introduction ......... |procman-intro|
+    2. Setup ................ |procman-setup|
+    3. Commands ............. |procman-commands|
+    4. Lua API .............. |procman-api|
+
+==============================================================================
+1. Introduction                                              *procman-intro*
+
+procman.nvim discovers common projects in your workspace (package.json,
+*.csproj, Cargo.toml, go.mod), lets you start/stop/restart processes, shows
+a panel with the state and memory usage of each service, and displays the
+logs of each process in a floating window.
+
+==============================================================================
+2. Setup                                                      *procman-setup*
+
+>lua
+    require("procman").setup({
+      services = {
+        api = { cmd = "npm run dev", cwd = "backend" },
+      },
+    })
+<
+
+See the plugin's README.md for the full list of options.
+
+==============================================================================
+3. Commands                                                *procman-commands*
+
+:ProcManOpen                    Open the process panel
+:ProcManToggle                  Toggle the process panel
+:ProcManClose                   Close the process panel
+:ProcManStart {name}            Start a service
+:ProcManStop {name}             Stop a service
+:ProcManRestart {name}          Restart a service
+:ProcManStartAll                Start all services
+:ProcManStopAll                 Stop all services
+:ProcManLogs {name}             Open a service's logs
+:ProcManEdit                    Create/edit the project's .procman.lua
+:ProcManAdd                     Create a custom command via prompt
+:ProcManReload                  Reload discovery + .procman.lua + services
+
+The `.procman.lua` file, at the root of the workspace, lets you declare
+`services` per project without editing the global init.lua.
+
+The `projects` option, passed to setup(), lets you declare `services` per
+project right in your Neovim config (dotfiles), indexed by the project's
+root path -- no `.procman.lua` file needed inside the repository. Example:
+
+>lua
+    require("procman").setup({
+      projects = {
+        ["~/Workspace/rca"] = {
+          services = {
+            web = { cmd = { "npm", "run", "dev" }, cwd = "apps/web" },
+            api = { cmd = { "dotnet", "run", "--project", "src/Api" }, cwd = "apps/api" },
+          },
+        },
+      },
+    })
+<
+
+Merge priority (later overrides earlier on service name conflict):
+auto-discovery -> .procman.lua -> projects[root] -> `services`
+passed to setup().
+
+==============================================================================
+4. Lua API                                                      *procman-api*
+
+require("procman").start({name})
+require("procman").stop({name})
+require("procman").restart({name})
+require("procman").start_all()
+require("procman").stop_all()
+require("procman").list()
+require("procman").get({name})
+require("procman").open_panel()
+require("procman").toggle_panel()
+require("procman").open_logs({name})
+require("procman").reload()
+
+vim:tw=78:ts=8:noet:ft=help:norl:
