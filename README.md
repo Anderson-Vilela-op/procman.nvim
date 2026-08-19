@@ -62,7 +62,7 @@ already on):
 
 ```lua
 return {
-  "your-username/procman.nvim",
+  "Anderson-Vilela-op/procman.nvim",
   opts = {},
 }
 ```
@@ -73,7 +73,7 @@ for you, no need for `config = function() ... end`:
 
 ```lua
 return {
-  "your-username/procman.nvim",
+  "Anderson-Vilela-op/procman.nvim",
   opts = {
     auto_discover = true,
     services = {
@@ -90,7 +90,7 @@ normally alongside `cmd`/`keys`/`ft` etc., like any other lazy.nvim spec:
 
 ```lua
 return {
-  "your-username/procman.nvim",
+  "Anderson-Vilela-op/procman.nvim",
   cmd = { "ProcManOpen", "ProcManToggle" },
   keys = { { "<leader>pp", "<cmd>ProcManToggle<cr>", desc = "Procman" } },
   opts = {},
@@ -101,7 +101,7 @@ return {
 
 ```lua
 use({
-  "your-username/procman.nvim",
+  "Anderson-Vilela-op/procman.nvim",
   config = function()
     require("procman").setup({})
   end,
@@ -112,7 +112,7 @@ With options:
 
 ```lua
 use({
-  "your-username/procman.nvim",
+  "Anderson-Vilela-op/procman.nvim",
   config = function()
     require("procman").setup({
       auto_discover = true,
