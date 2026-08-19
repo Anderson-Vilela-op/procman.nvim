@@ -4,6 +4,13 @@
 
 # procman.nvim
 
+<p align="center">
+  <a href="https://github.com/Anderson-Vilela-op/procman.nvim/actions/workflows/test.yml"><img src="https://github.com/Anderson-Vilela-op/procman.nvim/actions/workflows/test.yml/badge.svg" alt="CI"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="https://github.com/Anderson-Vilela-op/procman.nvim/issues"><img src="https://img.shields.io/github/issues/Anderson-Vilela-op/procman.nvim" alt="Issues"></a>
+  <a href="https://github.com/Anderson-Vilela-op/procman.nvim/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
+</p>
+
 Process/service manager for Neovim, written in Lua. Built for workspaces
 with multiple services (e.g. `backend` + `frontend` + `worker`).
 
@@ -354,3 +361,14 @@ runs `ps -eo pid,ppid,rss` once, builds the system's process tree, and sums
 the RSS of each service's root pid with all of its descendants --
 important because commands like `npm run dev` typically spawn a real child
 process, and the root process's RSS alone would be misleading.
+
+## Contributing
+
+Bug reports, feature requests, and PRs are welcome -- see
+[CONTRIBUTING.md](CONTRIBUTING.md) for how to run the test suite and add a
+new provider. Opening an [issue](https://github.com/Anderson-Vilela-op/procman.nvim/issues)
+first is a good idea for anything beyond a small fix.
+
+## License
+
+[MIT](LICENSE)

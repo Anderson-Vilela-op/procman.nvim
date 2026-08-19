@@ -1,0 +1,52 @@
+name: Bug report
+description: Something isn't working as expected
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear description of the bug. What did you expect instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps (and, if possible, a minimal `.procman.lua` or `setup()` snippet) to reproduce the issue.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs / :messages output
+      description: Paste any error messages, `:messages` output, or service logs from the floating log window.
+      render: shell
+
+  - type: input
+    id: nvim-version
+    attributes:
+      label: Neovim version
+      placeholder: "nvim --version"
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      placeholder: "e.g. Arch Linux, macOS 14"
+    validations:
+      required: true
+
+  - type: input
+    id: plugin-manager
+    attributes:
+      label: Plugin manager
+      placeholder: "lazy.nvim, packer.nvim, vim.pack, ..."
